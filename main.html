@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Letter</title>
+  <style>
+    body {
+      background: #ffe6e6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+      color: #c9184a;
+      margin-bottom: 5px;
+      font-size: 2rem;
+      animation: pulseText 2s infinite;
+    }
+
+    .arrow {
+      font-size: 2rem;
+      color: #c9184a;
+      animation: bounce 1.5s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulseText {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    .emoji {
+      font-size: 10rem;
+      cursor: pointer;
+      animation: vibrate 1s infinite;
+      transition: transform 0.2s ease;
+    }
+
+    .emoji:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes vibrate {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(-3deg); }
+      20% { transform: rotate(3deg); }
+      30% { transform: rotate(-3deg); }
+      40% { transform: rotate(3deg); }
+      50% { transform: rotate(-2deg); }
+      60% { transform: rotate(2deg); }
+      70% { transform: rotate(-1deg); }
+      80% { transform: rotate(1deg); }
+      90% { transform: rotate(0deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click me 💖</h1>
+  <div class="arrow">↓</div>
+
+  <div class="emoji" onclick="goToLovePage()">💌</div>
+
+  <script>
+    function goToLovePage() {
+      window.location.href = "love.html";
+    }
+  </script>
+
+</body>
+</html>
+
+
+

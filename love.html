@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Love</title>
+  <style>
+    body {
+      background: #ffe6f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Georgia', serif;
+      padding: 20px;
+    }
+
+    .letter-container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .letter-container h3 {
+      color: #d6336c;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    #message {
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      min-height: 300px;
+      text-align: left;
+    }
+
+    .heart {
+      font-size: 3rem;
+      margin-top: 25px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .countdown {
+      margin-top: 30px;
+    }
+
+    .countdown-title {
+      font-size: 1.1rem;
+      color: #d6336c;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .countdown-timer {
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="letter-container">
+    <h3>Ayanfe Mi ❤️</h3>
+    <div id="message"></div>
+    <div class="heart">💖</div>
+    <div class="countdown">
+      <div class="countdown-title">Countdown till we see each other:</div>
+      <div class="countdown-timer" id="countdown"></div>
+       <div class="playlist-section">
+  <p class="playlist-title">And I made you a little something to listen to 🎶</p>
+  <a href="https://open.spotify.com/playlist/2Jv12gRthVgreGjAtQRG1A?si=538f46ef8e174ec3" target="_blank" class="playlist-button">
+    💗 Listen on Spotify
+  </a>
+</div>
+    </div>
+  </div>
+
+  <script>
+    const message = `Being your boyfriend has been the greatest pleasure of my life. I knew from the moment I saw you that you were beautiful, smart, and cool and once I got to know you, I got to confirm my hypothesis. Something else also happened that I didn’t expect: I fell in love. And I fell hard.
+
+I loved hanging out with you every day, talking to you, sharing laughs, and pushing each other to success. After a while, an epiphany struck me , you were the only one meant for me. I couldn’t imagine life with anyone else. In those moments, I knew I had to make you my girlfriend.
+
+So to the one that makes me smile the most… 
+The one who is the first and last thing on my mind…
+The one so beautiful, mere mortals can’t take it…
+The one who breathes life into everything around her…
+And makes gold and diamonds when only given coal…
+
+My princess, my Rahmat, my girlfriend — I love you so much.
+
+Happy Girlfriend’s Day, my love. 💕`;
+
+    let i = 0;
+    const speed = 40;
+
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("message").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    window.onload = function () {
+      typeWriter();
+      startCountdown();
+    };
+
+    function startCountdown() {
+      const targetDate = new Date("August 17, 2025 00:00:00").getTime();
+      const countdownElement = document.getElementById("countdown");
+
+      setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+          countdownElement.innerHTML = "It's the day! 💞";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d: ${hours}h: ${minutes}m: ${seconds}s:`;
+      }, 1000);
+    }
+  </script>
+
+ 
+
+</body>
+</html>
+
